@@ -9,8 +9,14 @@ const navSlide = () => {
 }
 navSlide();
 
+//Efecto scroll header
+window.addEventListener('scroll', function(){
+    const header = document.querySelector('header');
 
+    header.classList.toggle("scrollAbajo", window.scrollY>0)
+})
 
+/* -------------------------------------------------------------------------------------------------- */
 
 //Verificacion de edades
 const verificadorBoton = document.getElementById("verificador");
@@ -31,6 +37,7 @@ function obtenerEdad() {
 }
 
 
+/* -------------------------------------------------------------------------------------------------- */
 
 
 
@@ -115,7 +122,7 @@ function localesSiono() {
                 style: {
                     background: "linear-gradient(to right, #ffe4c4, black)",
                 },
-                }).showToast();
+            }).showToast();
         })
     }
 }
@@ -123,3 +130,21 @@ function localesSiono() {
 function obtenerLocales() {
     ('ListaLocales' in localStorage) && productos.localStorage.getItem('ListaLocales').split(',');
 }
+
+/* setTimeout(() => {
+    Swal.fire({
+        title: '<strong>Seguinos en las <u>Redes</u></strong>',
+        icon: 'info',
+        html:
+            'En <b>Instagram </b>, ' +
+            '<a href="//sweetalert2.github.io">links</a>' ,
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+            '<i class="fa fa-thumbs-up"></i> Ok!',
+        confirmButtonAriaLabel: 'Thumbs up, great!',
+        cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
+        cancelButtonAriaLabel: 'Thumbs down'
+    })
+}, 5000); */
