@@ -131,13 +131,13 @@ function obtenerLocales() {
     ('ListaLocales' in localStorage) && productos.localStorage.getItem('ListaLocales').split(',');
 }
 
-/* setTimeout(() => {
+setTimeout(() => {
     Swal.fire({
         title: '<strong>Seguinos en las <u>Redes</u></strong>',
         icon: 'info',
         html:
             'En <b>Instagram </b>, ' +
-            '<a href="//sweetalert2.github.io">links</a>' ,
+            '<a href="https://www.instagram.com/felipejuaneda/">Clickea aca</a>' ,
         showCloseButton: true,
         showCancelButton: true,
         focusConfirm: false,
@@ -147,4 +147,4 @@ function obtenerLocales() {
         cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
         cancelButtonAriaLabel: 'Thumbs down'
     })
-}, 5000); */
+}, 5000);
