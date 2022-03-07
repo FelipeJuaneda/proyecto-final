@@ -25,7 +25,7 @@
                     <a href="#">Inicio</a>
                 </li>
                 <li>
-                    <a href="#">Nosotros</a>
+                    <a href="#localesDispo">Locales</a>
                 </li>
                 <li>
                     <a href="#">Contacto</a>
@@ -57,19 +57,70 @@
         <input id="sionoInput" type="text" placeholder="si o no">
         <button id="botonLocaldispo" class="btn btn-warning mt-2">Locales</button>
         <button id="borrarLocales" class="btn btn-warning mt-2">Limpiar busqueda</button>
-
-        <div id="localesDispo" class="row row-cols-4 localesSiono">
+        <!-- <div id="contenedorFiltro">
+            <h2>Inserte numero de local para filtrar</h2>
+            <input id="inputFiltro" type="number" placeholder="Local numero...">
+        </div> -->
+        <div id="localesDispo" class="localesSiono">
             <!-- Locales generados -->
         </div>
-        <div id="filtroLocales">
 
-        </div>
     </div>
     <div id="imagenesLocales">
 
     </div>
     <div id="contenedorImgs">
 
+    </div>
+
+
+    <!-- -----------------CARRITO---------------- -->
+
+    <!-- BOTON -->
+    <section>
+        <div>
+            <button type="button" class="btn btn-primary botonCarrito" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Carrito <span id="cantidad" class="badge bg-secondary">0</span>
+            </button>
+        </div>
+        <hr>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Carrito</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="productosCarrito" class="modal-body">
+                        <!-- Carrito desde JS -->
+                    </div>
+                    <div class="modal-footer">
+                        <p id="totalCarrito"> </p>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button id="confirmar" type="button" class="btn btn-primary">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2 class="text-center">Local 1</h2>
+        <div id="productosContenedor">
+            <!--ACA SE GENERAN LOS PRODUCTOS-->
+        </div>
+
+        
+        
+    </section>
+
+
+
+    <!-- PRODUCTOS -->
+    <div id="productosContenedor" class="row row-cols-3">
+        <!--ACA SE GENERAN LOS PRODUCTOS-->
     </div>
 
 
@@ -80,6 +131,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!-- SWEET ALERT JS -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
     <!-- MI JS -->
     <script src="js/globales.js"></script>
     <script src="js/funciones.js"></script>

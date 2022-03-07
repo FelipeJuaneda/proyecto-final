@@ -145,6 +145,10 @@ nav{
 } */
 .localesSiono{
     margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
 }
 #imagenesLocales{
     width: 90%;
@@ -156,4 +160,25 @@ nav{
     margin: auto;
     display: flex;
     justify-content: center;
+}
+
+/* BOTON CARRITO */
+.botonCarrito{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    z-index: 99;
+}
+/* CARTAS DE PRODUCTOS */
+#productosContenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.cartaProductos{
+    width: 18rem;
 }

@@ -1,5 +1,5 @@
 //CLASE
-class Producto {
+class Locales {
     constructor(id, local, precio, espacio, img, tag) {
         this.id = parseInt(id)
         this.local = local.toUpperCase();
@@ -15,4 +15,23 @@ class Producto {
     mostrar() {
         return "El " + this.local + " cuesta " + this.precio + " pesos POR MES " + "y cuenta con un espacio de " + this.espacio;
     }
+};
+
+class Producto {
+    constructor(id, nombre, precio, img, cantidad) {
+            this.id = parseInt(id);
+            this.nombre = nombre.toUpperCase();
+            this.precio = parseFloat(precio);
+            this.img= img;
+            this.cantidad= cantidad || 1;
+    }
+    addCantidad(){
+        this.cantidad++;                
+    }
+    subTotal(){
+        return this.precio * this.cantidad;                
+    }
+    
 }
+
+
