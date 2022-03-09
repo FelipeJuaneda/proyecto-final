@@ -1,5 +1,4 @@
-
-//ARRAY
+//ARRAY LOCAlES
 local.push(new Locales(01, "Local 1", 5000, "3m x 4m", "https://dummyimage.com/600x400/000/fff", "chico"));
 local.push(new Locales(02, "Local 2", 7000, "5,5m x 5m", "https://dummyimage.com/500x300/000/fff", "chico"));
 local.push(new Locales(03, "Local 3", 8000, "6m x 6m", "https://dummyimage.com/400x500/000/fff", "grande"));
@@ -7,7 +6,6 @@ local.push(new Locales(04, "Local 4", 10000, "8 x 7m", "https://dummyimage.com/3
 
 
 /* productos */
-
 //INSTANCIAR OBJETOS Y ASOCIAR A ARRAY GLOBAL
 productos.push(new Producto(1, "Taza", 65, "https://dummyimage.com/300x300/000/fff"));
 productos.push(new Producto(2, "Vaso", 70, "https://dummyimage.com/300x300/000/fff"));

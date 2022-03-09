@@ -109,6 +109,14 @@ nav{
     background-size: cover;
 
 }
+.verificador h1 .paseoColonial{
+    color: var(--color-naranja);
+}
+.verificador h1 .typed{
+    font-weight: bold;
+    font-style: normal;
+    
+}
 .verificador .edadCont{
     display: flex;
     justify-content: center;

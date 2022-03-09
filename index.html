@@ -10,7 +10,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://kit.fontawesome.com/e5828c9348.js" crossorigin="anonymous"></script>
-    <title>Libreria</title>
+    <title>Proyecto final</title>
 </head>
 
 <body>
@@ -39,15 +39,10 @@
         </nav>
     </header>
 
-    <!-- VERIFICADOR DE EDAD -->
+    <!-- Main -->
     <div class="verificador">
-        <h1>Verifica tu edad</h1>
-        <div class="edadCont">
-            <label for="edad">Ingrese tu edad</label>
-            <input type="number" id="edad">
-            <button id="verificador" class="btn btn-warning">Verifique su Edad</button>
-        </div>
-        <p id="salidaVerificador"></p>
+        <h1><span class="paseoColonial">PASEO COLONIAL</span> - Galeria <span class="typed"></span></h1>
+        <h2>Belgrano 773, Cordoba, Argentina</h2>
     </div>
 
 
@@ -59,7 +54,7 @@
         <button id="borrarLocales" class="btn btn-warning mt-2">Limpiar busqueda</button>
 
 
-        <div id="contenedorFiltro">
+        <div id="contenedorFiltro" class="mt-5">
 
         </div>
 
@@ -82,7 +77,8 @@
     <!-- BOTON -->
     <section>
         <div>
-            <button type="button" class="btn btn-primary botonCarrito" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" class="btn btn-primary botonCarrito" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">
                 Carrito <span id="cantidad" class="badge bg-secondary">0</span>
             </button>
         </div>
@@ -115,8 +111,8 @@
             <!--ACA SE GENERAN LOS PRODUCTOS-->
         </div>
 
-        
-        
+
+
     </section>
 
 
@@ -127,6 +123,13 @@
     </div>
 
 
+
+
+
+
+
+    <!-- typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

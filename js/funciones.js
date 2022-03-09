@@ -16,25 +16,25 @@ window.addEventListener('scroll', function () {
     header.classList.toggle("scrollAbajo", window.scrollY > 0)
 })
 
-/* -------------------------------------------------------------------------------------------------- */
-
-//Verificacion de edades
-const verificadorBoton = document.getElementById("verificador");
-verificadorBoton.addEventListener("click", verificarEdad);
-function verificarEdad() {
-    let edad = document.getElementById("edad").value;
-    let salidaVeri = document.getElementById("salidaVerificador");
-    if ((edad != "") && (edad >= 18)) {
-        localStorage.setItem('EdadUsuario', JSON.stringify(edad));
-        salidaVeri.innerText = `Bienvenido! tu edad es de ${edad} años`;
-    } else {
-        salidaVeri.innerText = `DATOS INCORRECTOS - No eres mayor de 18`;
-    }
-    obtenerEdad();
-}
-function obtenerEdad() {
-    'EdadUsuario' in localStorage && edad.localStorage.getItem('EdadUsuario');
-}
+//TITULO GALERIA COMERCIAL
+const typed = new Typed('.typed', {
+    strings: [
+    '<i>Comercial</i>',
+    '<i>Artesanal</i>',
+    '<i>Colonial</i>'
+    ],
+    typeSpeed: 75, // Velocidad en mlisegundos para poner una letra,
+	startDelay: 300, // Tiempo de retraso en iniciar la animacion. Aplica tambien cuando termina y vuelve a iniciar,
+	backSpeed: 75, // Velocidad en milisegundos para borrrar una letra,
+	smartBackspace: true, // Eliminar solamente las palabras que sean nuevas en una cadena de texto.
+	shuffle: false, // Alterar el orden en el que escribe las palabras.
+	backDelay: 1800, // Tiempo de espera despues de que termina de escribir una palabra.
+	loop: true, // Repetir el array de strings
+	loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
+	showCursor: true, // Mostrar cursor palpitanto
+	cursorChar: '|', // Caracter para el cursor
+	contentType: 'html', // 'html' o 'null' para texto sin formato
+});
 
 
 /* -------------------------------------------------------------------------------------------------- */
@@ -50,34 +50,39 @@ function localesSiono() {
     let sioNo = document.getElementById("sionoInput").value;
     let contenedorDispo = document.getElementById("localesDispo");
     let limpiador = document.getElementById("borrarLocales");
-    let contenedorFiltro = document.getElementById("contenedorFiltro");
+    
 
     limpiador.addEventListener('click', borradorLocales);
     function borradorLocales() {
         contenedorDispo.innerHTML = "";
         contenedorImgs.innerHTML = "";
         imagenesLocales.innerHTML = "";
+        contenedorFiltro.innerHTML = "";
     }
-    let filtroLocales = document.createElement("div");
-    contenedorFiltro.innerHTML = `<h2>Inserte numero de local para filtrar</h2>
-                                    <input id="inputFiltro" type="number" placeholder="Local numero...">`;
-    contenedorFiltro.append(filtroLocales);
 
-    //FILTRO DE LOCALES
-    //generando filtro por numero de local
-    const inputFiltro = document.getElementById('inputFiltro');
-    inputFiltro.addEventListener('input', function () {
-        //Cuando ocurra el evento se realiza un filtro
-        
-        const filtrados = local.filter(locales => locales.tis);
-        console.log(filtrados);
-        //Ocupo la funcion para generar interfaz con el array filtrado
-
-    })
 
     //CONTENEDOR LOCALES
     if ((sioNo == "si") || (sioNo == "SI") || (sioNo == "Si")) {
         contenedorDispo.innerHTML = "";
+
+        let contenedorFiltro = document.getElementById("contenedorFiltro");
+        let filtroLocales = document.createElement("div");
+        contenedorFiltro.innerHTML = `<h2>Inserte numero de local para filtrar</h2>
+                                    <input id="inputFiltro" type="number" placeholder="Local numero...">`;
+        contenedorFiltro.append(filtroLocales);
+
+        //FILTRO DE LOCALES
+        //generando filtro por numero de local
+        const inputFiltro = document.getElementById('inputFiltro');
+        inputFiltro.addEventListener('input', function () {
+            //Cuando ocurra el evento se realiza un filtro
+
+            const filtrados = local.filter(locales => locales.tis);
+            console.log(filtrados);
+            //Ocupo la funcion para generar interfaz con el array filtrado
+
+        })
+
 
         //GENERADOR DE LOCALES
         for (const locales of local) {
@@ -97,6 +102,8 @@ function localesSiono() {
     }
     else {
         contenedorDispo.innerHTML = "";
+        contenedorFiltro.innerHTML = "";
+
         let localesCont = document.createElement("div");
         localesCont.innerHTML = `No hay problema!`;
         contenedorDispo.append(localesCont);
@@ -136,13 +143,13 @@ function obtenerLocales() {
     ('ListaLocales' in localStorage) && local.localStorage.getItem('ListaLocales').split(',');
 }
 
-setTimeout(() => {
+/* setTimeout(() => {
     Swal.fire({
         title: '<strong>Seguinos en las <u>Redes</u></strong>',
         icon: 'info',
         html:
             'En <b>Instagram </b>, ' +
-            '<a href="https://www.instagram.com/felipejuaneda/">Clickea aca</a>' ,
+            '<a href="https://www.instagram.com/felipejuaneda/">Clickea aca</a>',
         showCloseButton: true,
         showCancelButton: true,
         focusConfirm: false,
@@ -152,7 +159,7 @@ setTimeout(() => {
         cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
         cancelButtonAriaLabel: 'Thumbs down'
     })
-}, 5000);
+}, 5000); */
 
 
 
