@@ -123,7 +123,7 @@ function localesSiono() {
         contenedorFiltro.innerHTML = "";
 
         let localesCont = document.createElement("div");
-        localesCont.innerHTML = `No hay problema!`;
+        localesCont.innerHTML = `<p class="fs-2" style="color:red;"> No hay problema!</p>`;
         contenedorDispo.append(localesCont);
     }
 
@@ -180,8 +180,8 @@ function obtenerLocales() {
         cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
         cancelButtonAriaLabel: 'Thumbs down'
     })
-}, 5000);
- */
+}, 5000); */
+
 
 
 
