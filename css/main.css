@@ -110,11 +110,10 @@ nav{
 
 }
 .verificador h1 .paseoColonial{
-    color: var(--color-naranja);
+    font-weight: bold;
 }
 .verificador h1 .typed{
-    font-weight: bold;
-    font-style: normal;
+    color: var(--color-naranja);
     
 }
 .verificador .edadCont{
@@ -141,16 +140,7 @@ nav{
     align-items: center;
     text-align: center;
 }
-.contenedorSiono input{
-    width: 20%;
-}
-/* #botonLocaldispo{
-    width: 20%;
-}
-.localesSiono > div{
-    border: solid 1px bisque;
-    width: 100%;
-} */
+
 .localesSiono{
     margin-top: 50px;
     display: flex;

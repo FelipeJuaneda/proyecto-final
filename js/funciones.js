@@ -19,21 +19,21 @@ window.addEventListener('scroll', function () {
 //TITULO GALERIA COMERCIAL
 const typed = new Typed('.typed', {
     strings: [
-    '<i>Comercial</i>',
-    '<i>Artesanal</i>',
-    '<i>Colonial</i>'
+        '<i>Comercial</i>',
+        '<i>Artesanal</i>',
+        '<i>Colonial</i>'
     ],
     typeSpeed: 75, // Velocidad en mlisegundos para poner una letra,
-	startDelay: 300, // Tiempo de retraso en iniciar la animacion. Aplica tambien cuando termina y vuelve a iniciar,
-	backSpeed: 75, // Velocidad en milisegundos para borrrar una letra,
-	smartBackspace: true, // Eliminar solamente las palabras que sean nuevas en una cadena de texto.
-	shuffle: false, // Alterar el orden en el que escribe las palabras.
-	backDelay: 1800, // Tiempo de espera despues de que termina de escribir una palabra.
-	loop: true, // Repetir el array de strings
-	loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
-	showCursor: true, // Mostrar cursor palpitanto
-	cursorChar: '|', // Caracter para el cursor
-	contentType: 'html', // 'html' o 'null' para texto sin formato
+    startDelay: 300, // Tiempo de retraso en iniciar la animacion. Aplica tambien cuando termina y vuelve a iniciar,
+    backSpeed: 75, // Velocidad en milisegundos para borrrar una letra,
+    smartBackspace: true, // Eliminar solamente las palabras que sean nuevas en una cadena de texto.
+    shuffle: false, // Alterar el orden en el que escribe las palabras.
+    backDelay: 1800, // Tiempo de espera despues de que termina de escribir una palabra.
+    loop: true, // Repetir el array de strings
+    loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
+    showCursor: true, // Mostrar cursor palpitanto
+    cursorChar: '|', // Caracter para el cursor
+    contentType: 'html', // 'html' o 'null' para texto sin formato
 });
 
 
@@ -50,7 +50,6 @@ function localesSiono() {
     let sioNo = document.getElementById("sionoInput").value;
     let contenedorDispo = document.getElementById("localesDispo");
     let limpiador = document.getElementById("borrarLocales");
-    
 
     limpiador.addEventListener('click', borradorLocales);
     function borradorLocales() {
@@ -64,25 +63,44 @@ function localesSiono() {
     //CONTENEDOR LOCALES
     if ((sioNo == "si") || (sioNo == "SI") || (sioNo == "Si")) {
         contenedorDispo.innerHTML = "";
-
+        window.scrollTo(0,840)
+        //FILTRO DE LOCALES
         let contenedorFiltro = document.getElementById("contenedorFiltro");
         let filtroLocales = document.createElement("div");
-        contenedorFiltro.innerHTML = `<h2>Inserte numero de local para filtrar</h2>
-                                    <input id="inputFiltro" type="number" placeholder="Local numero...">`;
+        contenedorFiltro.innerHTML = `<h2 class="text-center">Inserte numero de local para filtrar <br> (del 1 al 10)</h2>
+                                <input id="inputFiltro" class="text-center" type="number" placeholder="Local numero...">
+                                <div id="localFiltradoCont"></div>`;
         contenedorFiltro.append(filtroLocales);
-
-        //FILTRO DE LOCALES
         //generando filtro por numero de local
-        const inputFiltro = document.getElementById('inputFiltro');
+
         inputFiltro.addEventListener('input', function () {
             //Cuando ocurra el evento se realiza un filtro
+            if (inputFiltro.value != "" && inputFiltro.value <= 10) {
+                const inputFiltro = document.getElementById('inputFiltro');
+                const filtrados = local.find(locales => locales.id == inputFiltro.value);
+                console.log(filtrados);
+                //Ocupo la funcion para generar interfaz con el array filtrado
+                let localFiltradoCont = document.getElementById('localFiltradoCont');
+                let localFiltrado = document.createElement("div");
 
-            const filtrados = local.filter(locales => locales.tis);
-            console.log(filtrados);
-            //Ocupo la funcion para generar interfaz con el array filtrado
-
-        })
-
+                localFiltradoCont.innerHTML = `<div class="card text-center mt-4" style="width: 30rem; margin:auto">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${filtrados.local}</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">Precio por mes: ${filtrados.precio}$</h6>
+                                                <p class="card-text">Y cuenta con un espacio de ${filtrados.espacio} </p>
+                                                <img src="${filtrados.img}" alt="" style="width: 100%">
+                                            </div>
+                                        </div>`;
+                localFiltradoCont.append(localFiltrado);
+            }
+            else if (inputFiltro.value == ""){
+                localFiltradoCont.innerHTML="";
+            }
+            else{
+                localFiltradoCont.innerHTML='<p class="text-center fs-2" style="color: red">No se encontro Local - Verifique numero</p>';
+            }
+        }
+        );
 
         //GENERADOR DE LOCALES
         for (const locales of local) {
@@ -109,10 +127,13 @@ function localesSiono() {
         contenedorDispo.append(localesCont);
     }
 
+
+
+
     //BOTONES VER LOCAL
     let botonesLocales = document.getElementsByClassName("btnLocal");
     let contenedorImgs = document.getElementById('contenedorImgs');
-    let imagenesLocales = document.getElementById('imagenesLocales')
+    let imagenesLocales = document.getElementById('imagenesLocales');
     for (const boton of botonesLocales) {
         boton.addEventListener('click', function () {
             let seleccion = local.find(locales => locales.id == this.id);
@@ -141,7 +162,7 @@ function localesSiono() {
 
 function obtenerLocales() {
     ('ListaLocales' in localStorage) && local.localStorage.getItem('ListaLocales').split(',');
-}
+};
 
 /* setTimeout(() => {
     Swal.fire({
@@ -159,8 +180,8 @@ function obtenerLocales() {
         cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
         cancelButtonAriaLabel: 'Thumbs down'
     })
-}, 5000); */
-
+}, 5000);
+ */
 
 
 
@@ -186,7 +207,7 @@ function productosUI(productos, id) {
         productosRender.append(divProducto);
     }
     seleccionarProducto();
-}
+};
 
 function seleccionarProducto() {
     let botones = document.getElementsByClassName('btnCompra');
