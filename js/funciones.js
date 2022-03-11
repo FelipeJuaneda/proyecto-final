@@ -59,11 +59,10 @@ function localesSiono() {
         contenedorFiltro.innerHTML = "";
     }
 
-
     //CONTENEDOR LOCALES
     if ((sioNo == "si") || (sioNo == "SI") || (sioNo == "Si")) {
         contenedorDispo.innerHTML = "";
-        window.scrollTo(0,840)
+        window.scrollTo(0, 840)
         //FILTRO DE LOCALES
         let contenedorFiltro = document.getElementById("contenedorFiltro");
         let filtroLocales = document.createElement("div");
@@ -82,22 +81,23 @@ function localesSiono() {
                 //Ocupo la funcion para generar interfaz con el array filtrado
                 let localFiltradoCont = document.getElementById('localFiltradoCont');
                 let localFiltrado = document.createElement("div");
-
+                /*  */
                 localFiltradoCont.innerHTML = `<div class="card text-center mt-4" style="width: 30rem; margin:auto">
-                                            <div class="card-body">
-                                                <h5 class="card-title">${filtrados.local}</h5>
-                                                <h6 class="card-subtitle mb-2 text-muted">Precio por mes: ${filtrados.precio}$</h6>
-                                                <p class="card-text">Y cuenta con un espacio de ${filtrados.espacio} </p>
-                                                <img src="${filtrados.img}" alt="" style="width: 100%">
-                                            </div>
-                                        </div>`;
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">${filtrados.local}</h5>
+                                                        <h6 class="card-subtitle mb-2 text-muted">Precio por mes${filtrados.precio}$</h6>
+                                                        <p class="card-text">Y cuenta con un espacio de{filtrados.espacio} </p>
+                                                        <img src="${filtrados.img}" alt="" style="width: 100%">
+                                                    </div>
+                                                </div>`
+
                 localFiltradoCont.append(localFiltrado);
             }
-            else if (inputFiltro.value == ""){
-                localFiltradoCont.innerHTML="";
+            else if (inputFiltro.value == "") {
+                localFiltradoCont.innerHTML = "";
             }
-            else{
-                localFiltradoCont.innerHTML='<p class="text-center fs-2" style="color: red">No se encontro Local - Verifique numero</p>';
+            else {
+                localFiltradoCont.innerHTML = '<p class="text-center fs-2" style="color: red">No se encontro Local - Verifique numero</p>';
             }
         }
         );
@@ -107,16 +107,65 @@ function localesSiono() {
             let { local, precio, espacio, id } = locales;
             localStorage.setItem('ListaLocales', JSON.stringify(local))
             let localesCont = document.createElement("div");
-            localesCont.innerHTML = `<div class="card" style="width: 18rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">${local}</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">Precio por mes: ${precio}$</h6>
-                                            <p class="card-text">Y cuenta con un espacio de ${espacio}</p>
-                                            <button id='${id}' class= 'btnLocal btn btn-warning'>Ver Local</button>
-                                        </div>
+            localesCont.classList.add("w-100");
+            localesCont.innerHTML = `<div class="carrusel">
+                                            <div class="carrusel-items">
+                                                <div class="carrusel-item">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">${local}</h5>
+                                                            <h6 class="card-subtitle mb-2 text-muted">Precio por mes: ${precio}$</h6>
+                                                            <p class="card-text">Y cuenta con un espacio de ${espacio}</p>
+                                                            <button id='${id}' class= 'btnLocal btn btn-warning'>Ver Local</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                     </div>`;
             contenedorDispo.append(localesCont);
         }
+
+
+        //CARRUSEL DE LOCALES
+        //declarando variables
+        let localessionoClase = document.querySelector(".localesSiono");
+        let maxDeScroll = localessionoClase.scrollWidth - localessionoClase.clientWidth;
+        let intervalo = null
+        let velocidadCarrusel= 1
+
+        //funcion de carrusel
+        const empezarCarrusel = ()=>{
+            intervalo = setInterval(() => {
+                localessionoClase.scrollLeft = localessionoClase.scrollLeft + velocidadCarrusel;
+                if (localessionoClase.scrollLeft === maxDeScroll) {
+                    velocidadCarrusel= -1
+                }else if(localessionoClase.scrollLeft === 0){
+                    velocidadCarrusel= 1
+                }
+            }, 10);
+        }
+        const pararCarrusel= ()=>{
+            clearInterval(intervalo);
+        }
+
+        localessionoClase.addEventListener('mouseover', ()=>{
+            pararCarrusel();
+        });
+
+        localessionoClase.addEventListener('mouseout', ()=>{
+            empezarCarrusel();
+        });
+
+        //llamo a la funcion
+        empezarCarrusel();
+        
+
+
+
+
+
+
+
     }
     else {
         contenedorDispo.innerHTML = "";
@@ -164,7 +213,7 @@ function obtenerLocales() {
     ('ListaLocales' in localStorage) && local.localStorage.getItem('ListaLocales').split(',');
 };
 
-/* setTimeout(() => {
+setTimeout(() => {
     Swal.fire({
         title: '<strong>Seguinos en las <u>Redes</u></strong>',
         icon: 'info',
@@ -180,7 +229,7 @@ function obtenerLocales() {
         cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
         cancelButtonAriaLabel: 'Thumbs down'
     })
-}, 5000); */
+}, 5000);
 
 
 

@@ -151,9 +151,19 @@ nav{
 .localesSiono{
     margin-top: 50px;
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
     justify-content: center;
-    gap: 2rem;
+    align-items: center;
+    height: 32vh;
+    gap: 2.5rem;
+    background-image: url(../imagenes/cielohorizontalrecortada.png);
+    background-size: cover;
+    background-position: center;
+    -webkit-box-shadow: -1px 2px 41px 19px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 2px 41px 19px rgba(0,0,0,0.75);
+    box-shadow: -1px 2px 41px 19px rgba(0,0,0,0.75);
 }
 #imagenesLocales{
     width: 90%;
@@ -187,3 +197,13 @@ nav{
 .cartaProductos{
     width: 18rem;
 }
+
+.carrusel{
+    width: 20rem;
+}
+
+.carrusel-item:hover{
+    transform: scale(1.1);
+    transition: .3s;
+}
+
