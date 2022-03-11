@@ -1,4 +1,4 @@
-//Navegador - Header
+//---------------------------------------------------Navegador - Header-----------------------------
 const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
@@ -15,6 +15,13 @@ window.addEventListener('scroll', function () {
 
     header.classList.toggle("scrollAbajo", window.scrollY > 0)
 })
+
+
+let localesLi = document.getElementById('localesLi');
+console.log(localesLi);
+localesLi.addEventListener('click', function(){
+    window.scrollTo(0, 600);
+});
 
 //TITULO GALERIA COMERCIAL
 const typed = new Typed('.typed', {
@@ -41,10 +48,11 @@ const typed = new Typed('.typed', {
 
 
 
-//IF ELSE - SI O NO
+
+
+//--------------------------------FUNCION GENERADORA DE INTERFAZ CON INPUT SI O NO---------------------------
 let botonDispo = document.getElementById("botonLocaldispo");
 botonDispo.addEventListener("click", localesSiono);
-
 function localesSiono() {
     //LIMPIADOR DE BUSQUEDA
     let sioNo = document.getElementById("sionoInput").value;
@@ -59,10 +67,11 @@ function localesSiono() {
         contenedorFiltro.innerHTML = "";
     }
 
-    //CONTENEDOR LOCALES
+    //--------------------------------------------CONTENEDOR LOCALES--------------------------
+    //IF ELSE - SI O NO
     if ((sioNo == "si") || (sioNo == "SI") || (sioNo == "Si")) {
         contenedorDispo.innerHTML = "";
-        window.scrollTo(0, 840)
+        window.scrollTo(0, 1050);
         //FILTRO DE LOCALES
         let contenedorFiltro = document.getElementById("contenedorFiltro");
         let filtroLocales = document.createElement("div");
@@ -81,7 +90,7 @@ function localesSiono() {
                 //Ocupo la funcion para generar interfaz con el array filtrado
                 let localFiltradoCont = document.getElementById('localFiltradoCont');
                 let localFiltrado = document.createElement("div");
-                /*  */
+                /* GENERANDO LOCALES FILTRADOS POR NUMERO DE LOCAL */
                 localFiltradoCont.innerHTML = `<div class="card text-center mt-4" style="width: 30rem; margin:auto">
                                                     <div class="card-body">
                                                         <h5 class="card-title">${filtrados.local}</h5>
@@ -89,13 +98,15 @@ function localesSiono() {
                                                         <p class="card-text">Y cuenta con un espacio de{filtrados.espacio} </p>
                                                         <img src="${filtrados.img}" alt="" style="width: 100%">
                                                     </div>
-                                                </div>`
+                                                </div>`;
 
                 localFiltradoCont.append(localFiltrado);
             }
+            //para que se borre interfgaz cuando no hay valor seleccionado
             else if (inputFiltro.value == "") {
                 localFiltradoCont.innerHTML = "";
             }
+            //por si no se encuentra local
             else {
                 localFiltradoCont.innerHTML = '<p class="text-center fs-2" style="color: red">No se encontro Local - Verifique numero</p>';
             }
@@ -121,58 +132,51 @@ function localesSiono() {
                                                     </div>
                                                 </div>
                                             </div>
-                                    </div>`;
+                                        </div>`;
             contenedorDispo.append(localesCont);
         }
 
 
-        //CARRUSEL DE LOCALES
+        //-------------------------------------CARRUSEL DE LOCALES-----------------------------------
         //declarando variables
         let localessionoClase = document.querySelector(".localesSiono");
         let maxDeScroll = localessionoClase.scrollWidth - localessionoClase.clientWidth;
-        let intervalo = null
-        let velocidadCarrusel= 1
-
+        let intervalo = null;
+        let velocidadCarrusel = 1;
         //funcion de carrusel
-        const empezarCarrusel = ()=>{
+        const empezarCarrusel = () => {
             intervalo = setInterval(() => {
                 localessionoClase.scrollLeft = localessionoClase.scrollLeft + velocidadCarrusel;
                 if (localessionoClase.scrollLeft === maxDeScroll) {
-                    velocidadCarrusel= -1
-                }else if(localessionoClase.scrollLeft === 0){
-                    velocidadCarrusel= 1
+                    velocidadCarrusel = -1;
+                } else if (localessionoClase.scrollLeft === 0) {
+                    velocidadCarrusel = 1;
                 }
             }, 10);
         }
-        const pararCarrusel= ()=>{
+        const pararCarrusel = () => {
             clearInterval(intervalo);
-        }
-
-        localessionoClase.addEventListener('mouseover', ()=>{
+        };
+        localessionoClase.addEventListener('mouseover', () => {
             pararCarrusel();
         });
-
-        localessionoClase.addEventListener('mouseout', ()=>{
+        localessionoClase.addEventListener('mouseout', () => {
             empezarCarrusel();
         });
-
         //llamo a la funcion
         empezarCarrusel();
-        
-
-
-
-
-
-
-
     }
+
+    //POR SI PONEN NO
     else {
         contenedorDispo.innerHTML = "";
         contenedorFiltro.innerHTML = "";
 
+        window.scrollTo(0, 900);
         let localesCont = document.createElement("div");
-        localesCont.innerHTML = `<p class="fs-2" style="color:red;"> No hay problema!</p>`;
+        localesCont.classList.add('w-100')
+        localesCont.innerHTML = `<p class="fs-2" style="color:var(--color-negro); background-color: var(--color-blanco); padding: 10px; border-radius:5px;"> No hay problema!</p>`;
+        console.log(localesCont);
         contenedorDispo.append(localesCont);
     }
 
@@ -206,14 +210,13 @@ function localesSiono() {
         })
     }
 }
-
-
-
 function obtenerLocales() {
     ('ListaLocales' in localStorage) && local.localStorage.getItem('ListaLocales').split(',');
 };
 
-setTimeout(() => {
+
+//TIMEOUT MODAL INSTAGRAM
+/* setTimeout(() => {
     Swal.fire({
         title: '<strong>Seguinos en las <u>Redes</u></strong>',
         icon: 'info',
@@ -230,13 +233,13 @@ setTimeout(() => {
         cancelButtonAriaLabel: 'Thumbs down'
     })
 }, 5000);
-
+ */
 
 
 
 /* ----------------------------------------- CARRITO------------------------------------------- */
 
-
+//GENERANDO PRODUCTO DE LOCALES
 function productosUI(productos, id) {
     let productosRender = document.getElementById(id);
     productosRender.innerHTML = "";
@@ -258,6 +261,7 @@ function productosUI(productos, id) {
     seleccionarProducto();
 };
 
+//BOTON DE COMPRA 
 function seleccionarProducto() {
     let botones = document.getElementsByClassName('btnCompra');
     for (const boton of botones) {
@@ -284,6 +288,7 @@ function seleccionarProducto() {
     }
 
 }
+
 //Funcion para generar la interfaz del modal
 function carritoHTML(lista) {
     //modifico el valor del badge que indica la cantidad de productos en el carrito

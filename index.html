@@ -18,14 +18,14 @@
     <header>
         <nav>
             <div class="logo">
-                <span>Paseo Colonial</span>
+                <a href="#"><span>Paseo Colonial</span></a>
             </div>
             <ul class="nav-links">
                 <li>
                     <a href="#">Inicio</a>
                 </li>
                 <li>
-                    <a href="#localesDispo">Locales</a>
+                    <a id="localesLi" >Locales</a>
                 </li>
                 <li>
                     <a href="#">Contacto</a>
@@ -39,34 +39,40 @@
         </nav>
     </header>
 
-    <!-- Main -->
-    <div class="verificador">
+    <!-- Main - TITULO Y UBIC -->
+    <div class="tituloUbic">
         <h1><span class="paseoColonial">PASEO COLONIAL</span> - Galeria <span class="typed"></span></h1>
         <h2>Belgrano 773, Cordoba, Argentina</h2>
     </div>
 
 
     <!-- Locales disponible Si o No -->
-    <div class="contenedorSiono">
-        <h2>¿Deseas saber locales disponibles? Responde con si o no</h2>
+    <div class="contenedorSiono" id="sionoId">
+        <h2 id="localesNav">¿Deseas saber locales disponibles? Responde con si o no</h2>
         <input class="text-center" id="sionoInput" type="text" placeholder="si o no">
-        <button id="botonLocaldispo" class="btn btn-warning mt-2">Locales</button>
+        <button id="botonLocaldispo" class="btn btn-warning mt-4">Locales</button>
         <button id="borrarLocales" class="btn btn-warning mt-2">Limpiar busqueda</button>
 
-
+        <!-- FILTRO POR BUSQUEDA NUMERO DE LOCAL -->
         <div id="contenedorFiltro" class="mt-5">
 
         </div>
 
 
-        <div id="localesDispo" class="localesSiono">
-            <!-- Locales generados -->
+        <!-- IMAGEN DE GALERIA Y CONTENEDOR DE LCOALES CARRUSEL -->
+        <div class="contenedorGaleriaLocales mt-5">
+            <!-- SECCION LOCALES GENERADOS -->
+            <div id="localesDispo" class="localesSiono">
+                <!-- 10 LOCALES -->
+            </div>
         </div>
 
     </div>
+    <!--  -->
     <div id="imagenesLocales">
 
     </div>
+    <!--  -->
     <div id="contenedorImgs">
 
     </div>
@@ -82,7 +88,7 @@
                 Carrito <span id="cantidad" class="badge bg-secondary">0</span>
             </button>
         </div>
-        <hr>
+
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">

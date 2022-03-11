@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Libre+Baskerville&display=swap');
+
+
+
 :root{
     --color-negro : #000000;
     --color-blanco: #ffffff;
@@ -8,8 +13,12 @@
     padding: 0%;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'EB Garamond', serif;
+    font-family: 'Libre Baskerville', serif;
 }
-
+* a{
+    text-decoration: none;
+}
 /* NAVEGADOR - BURGER */
 header{
     position: fixed;
@@ -37,8 +46,10 @@ nav{
     font-size: 33px;
     letter-spacing: 2px;
     transition: 1.5s;
-    color: var(--color-naranja);
     border-block: solid var(--color-naranja);
+}
+.logo a span{
+    color: var(--color-naranja);
 }
 .nav-links{
     display: flex;
@@ -50,6 +61,13 @@ nav{
 }
 .nav-links li{
     list-style: none;
+}
+.nav-links li:hover{
+    color: var(--color-blanco);
+}
+.nav-links li #localesLi{
+    cursor: pointer;
+    color: var(--color-blanco);
 }
 .nav-links a{
     color:var(--color-blanco);
@@ -95,8 +113,8 @@ nav{
     transform: translateX(0%);
 }
 
-/* VERIFICADOR */
-.verificador{
+/* TITULO Y UBICACION */
+.tituloUbic{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -112,30 +130,30 @@ nav{
 }
 
 @media screen and (max-width:768px){
-    .verificador{
+    .tituloUbic{
         background-image: url(../imagenes/cielomobil.jpg);
     }
 } 
-.verificador h1 .paseoColonial{
+.tituloUbic h1 .paseoColonial{
     font-weight: bold;
 }
-.verificador h1 .typed{
+.tituloUbic h1 .typed{
     color: var(--color-naranja);
     
 }
-.verificador .edadCont{
+.tituloUbic .edadCont{
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
-.verificador .edadCont label{
+.tituloUbic .edadCont label{
     margin-top: 10px;
     text-align: center;
 }
-.verificador .edadCont input{
+.tituloUbic .edadCont input{
     margin-top: 10px;
 }
-.verificador .edadCont button{
+.tituloUbic .edadCont button{
     margin-top: 10px;
 }
 .contenedorSiono{
@@ -147,23 +165,29 @@ nav{
     align-items: center;
     text-align: center;
 }
-
+.contenedorGaleriaLocales{
+    width: 100%;
+    background-image: url(../imagenes/galeriabambu.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    height: 100vh;
+    box-shadow: 0px 14px 19px -2px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 0px 14px 19px -2px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px 14px 19px -2px rgba(0,0,0,0.64);
+    display: flex;
+    align-items: center;
+}
 .localesSiono{
-    margin-top: 50px;
     display: flex;
     overflow-x: hidden;
     overflow-y: hidden;
     width: 100%;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     height: 32vh;
     gap: 2.5rem;
-    background-image: url(../imagenes/cielohorizontalrecortada.png);
-    background-size: cover;
-    background-position: center;
-    -webkit-box-shadow: -1px 2px 41px 19px rgba(0,0,0,0.75);
-    -moz-box-shadow: -1px 2px 41px 19px rgba(0,0,0,0.75);
-    box-shadow: -1px 2px 41px 19px rgba(0,0,0,0.75);
+    
 }
 #imagenesLocales{
     width: 90%;
