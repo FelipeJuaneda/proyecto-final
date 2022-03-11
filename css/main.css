@@ -183,12 +183,21 @@ nav{
     overflow-x: hidden;
     overflow-y: hidden;
     width: 100%;
-    /* justify-content: center; */
     align-items: center;
     height: 32vh;
     gap: 2.5rem;
     
 }
+@media screen and (max-width:768px){
+    .localesSiono{
+        overflow-x: scroll;
+    }
+}
+
+.contenedorModalCarrito{
+    text-align: center;
+}
+
 #imagenesLocales{
     width: 90%;
     margin: auto;
@@ -209,6 +218,10 @@ nav{
     margin: 20px;
     z-index: 99;
 }
+
+
+
+
 /* CARTAS DE PRODUCTOS */
 #productosContenedor{
     display: flex;

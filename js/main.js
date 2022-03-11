@@ -44,9 +44,9 @@ confirmar.onclick = () => {
                 console.log(datos);
                 //3°GENERO LA INTERFAZ DE SELECCION DE PROVINCIAS
                 productosCarrito.innerHTML = `<h3>Info del Envio</h3>
-                                            <select id="provFiltro"></select> 
+                                            <select class="w-50" id="provFiltro"></select> 
                                             <select id="munFiltro"></select>
-                                            <button id="btnEnvio">Enviar</button>`;
+                                            <button class="btn btn-warning" id="btnEnvio">Enviar</button>`;
                 //OBTENGO DESDE EL DOM EL SELECT PROVINCIA
                 const provFiltro = document.getElementById('provFiltro');
                 //RECORRO LA INFO OBTENIDA DE LA API Y LA AGREGO AL SELECT

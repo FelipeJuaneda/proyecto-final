@@ -18,7 +18,6 @@ window.addEventListener('scroll', function () {
 
 
 let localesLi = document.getElementById('localesLi');
-console.log(localesLi);
 localesLi.addEventListener('click', function(){
     window.scrollTo(0, 600);
 });
@@ -49,7 +48,6 @@ const typed = new Typed('.typed', {
 
 
 
-
 //--------------------------------FUNCION GENERADORA DE INTERFAZ CON INPUT SI O NO---------------------------
 let botonDispo = document.getElementById("botonLocaldispo");
 botonDispo.addEventListener("click", localesSiono);
@@ -71,7 +69,7 @@ function localesSiono() {
     //IF ELSE - SI O NO
     if ((sioNo == "si") || (sioNo == "SI") || (sioNo == "Si")) {
         contenedorDispo.innerHTML = "";
-        window.scrollTo(0, 1050);
+        window.scrollTo(0, 850);
         //FILTRO DE LOCALES
         let contenedorFiltro = document.getElementById("contenedorFiltro");
         let filtroLocales = document.createElement("div");
@@ -152,7 +150,7 @@ function localesSiono() {
                 } else if (localessionoClase.scrollLeft === 0) {
                     velocidadCarrusel = 1;
                 }
-            }, 10);
+            }, 11);
         }
         const pararCarrusel = () => {
             clearInterval(intervalo);
@@ -185,8 +183,6 @@ function localesSiono() {
 
     //BOTONES VER LOCAL
     let botonesLocales = document.getElementsByClassName("btnLocal");
-    let contenedorImgs = document.getElementById('contenedorImgs');
-    let imagenesLocales = document.getElementById('imagenesLocales');
     for (const boton of botonesLocales) {
         boton.addEventListener('click', function () {
             let seleccion = local.find(locales => locales.id == this.id);
@@ -298,10 +294,19 @@ function carritoHTML(lista) {
     //Recorro la lista del carrito y genero la interfaz
     for (const producto of lista) {
         let prod = document.createElement('div');
-        prod.innerHTML = `${producto.nombre} 
-            <span class="badge bg-warning text-dark">Precio: $ ${producto.precio}</span>
-            <span class="badge bg-primary">Cantidad: ${producto.cantidad}</span>
-            <span class="badge bg-dark">Subtotal: $${producto.subTotal()}</span>`;
+        prod.classList.add('w-75');
+        prod.classList.add('m-auto');
+        prod.classList.add('text-center');
+        prod.classList.add('mb-4')
+        prod.innerHTML = 
+        `
+        <div class"contenedorModalCarrito w-100 m-auto">
+            <h2 style="color:var(--color-naranja);">${producto.nombre} </h2>        
+            <span>Precio: $ ${producto.precio} /</span>
+            <span style="color:var(--color-negro);">Cantidad: ${producto.cantidad} /</span>
+            <span style="color:var(--color-negro);">Subtotal: $${producto.subTotal()}</span>
+        </div>
+        `;
         productosCarrito.append(prod);
     }
 }
