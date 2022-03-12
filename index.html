@@ -25,7 +25,7 @@
                     <a href="#">Inicio</a>
                 </li>
                 <li>
-                    <a id="localesLi" >Locales</a>
+                    <a id="localesLi">Locales</a>
                 </li>
                 <li>
                     <a href="#">Contacto</a>
@@ -41,21 +41,25 @@
 
     <!-- Main - TITULO Y UBIC -->
     <div class="tituloUbic">
-        <h1><span class="paseoColonial">PASEO COLONIAL</span> - Galeria <span class="typed"></span></h1>
-        <h2>Belgrano 773, Cordoba, Argentina</h2>
+        <video autoplay loop class="videoAtardecer" src="video/videocieloedit.mp4"></video>
+        <h1 id="tituloEfectoScroll"><span class="paseoColonial">PASEO COLONIAL</span> - Galeria <span
+                class="typed"></span></h1>
+        <h2 id="subtituloEfectoScroll">Belgrano 773, Cordoba, Argentina</h2>
     </div>
 
 
     <!-- Locales disponible Si o No -->
     <div class="contenedorSiono" id="sionoId">
-        <h2 id="localesNav">¿Deseas saber locales disponibles? Responde con si o no</h2>
-        <input class="text-center" id="sionoInput" type="text" placeholder="si o no">
-        <button id="botonLocaldispo" class="btn btn-warning mt-4">Locales</button>
-        <button id="borrarLocales" class="btn btn-warning mt-2">Limpiar busqueda</button>
+        <div class="contenedorLocalesyFiltro">
+            <h2 id="localesNav">¿Deseas saber locales disponibles? <br> Responde con si o no</h2>
+            <input class="text-center" id="sionoInput" type="text" placeholder="si o no">
+            <button id="botonLocaldispo" class="">Locales</button>
+            <button id="borrarLocales" class="">Limpiar busqueda</button>
 
-        <!-- FILTRO POR BUSQUEDA NUMERO DE LOCAL -->
-        <div id="contenedorFiltro" class="mt-5">
+            <!-- FILTRO POR BUSQUEDA NUMERO DE LOCAL -->
+            <div id="contenedorFiltro" class="mt-5">
 
+            </div>
         </div>
 
 
@@ -72,7 +76,7 @@
     <!-- -----------------CARRITO---------------- -->
 
     <!-- BOTON -->
-    <section>
+    <section class="contenedorCarritoModal">
         <div>
             <button type="button" class="btn btn-primary botonCarrito" data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop">
@@ -103,7 +107,7 @@
 
 
 
-        <h2 class="text-center mt-5">Productos de locales</h2>
+        <h2 class="text-center pt-5">Productos de locales</h2>
         <h2 class="text-center mb-4">Local 1</h2>
         <div id="productosContenedor">
             <!--ACA SE GENERAN LOS PRODUCTOS-->

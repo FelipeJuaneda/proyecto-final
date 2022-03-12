@@ -18,9 +18,23 @@ window.addEventListener('scroll', function () {
 
 
 let localesLi = document.getElementById('localesLi');
-localesLi.addEventListener('click', function(){
+localesLi.addEventListener('click', function () {
     window.scrollTo(0, 600);
 });
+
+//EFECTO SCROLL A TITULO Y SUBTITULO
+let tituloEfectoScroll = document.getElementById('tituloEfectoScroll');
+let subtituloEfectoScroll = document.getElementById('subtituloEfectoScroll');
+
+window.addEventListener('scroll', function () {
+    let scrollenY = window.scrollY;
+    tituloEfectoScroll.style.marginTop = scrollenY * 0.30 + "px";
+    subtituloEfectoScroll.style.marginTop = scrollenY * 0.50 + "px";
+})
+
+
+
+
 
 //TITULO GALERIA COMERCIAL
 const typed = new Typed('.typed', {
@@ -69,7 +83,7 @@ function localesSiono() {
     //IF ELSE - SI O NO
     if ((sioNo == "si") || (sioNo == "SI") || (sioNo == "Si")) {
         contenedorDispo.innerHTML = "";
-        window.scrollTo(0, 850);
+        window.scrollTo(0, 900);
         //FILTRO DE LOCALES
         let contenedorFiltro = document.getElementById("contenedorFiltro");
         let filtroLocales = document.createElement("div");
@@ -82,6 +96,7 @@ function localesSiono() {
         inputFiltro.addEventListener('input', function () {
             //Cuando ocurra el evento se realiza un filtro
             if (inputFiltro.value != "" && inputFiltro.value <= 10) {
+                window.scrollTo(0, 920);
                 const inputFiltro = document.getElementById('inputFiltro');
                 const filtrados = local.find(locales => locales.id == inputFiltro.value);
                 console.log(filtrados);
@@ -89,14 +104,15 @@ function localesSiono() {
                 let localFiltradoCont = document.getElementById('localFiltradoCont');
                 let localFiltrado = document.createElement("div");
                 /* GENERANDO LOCALES FILTRADOS POR NUMERO DE LOCAL */
-                localFiltradoCont.innerHTML = `<div class="card text-center mt-4" style="width: 30rem; margin:auto">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">${filtrados.local}</h5>
-                                                        <h6 class="card-subtitle mb-2 text-muted">Precio por mes${filtrados.precio}$</h6>
-                                                        <p class="card-text">Y cuenta con un espacio de{filtrados.espacio} </p>
-                                                        <img src="${filtrados.img}" alt="" style="width: 100%">
-                                                    </div>
-                                                </div>`;
+                localFiltradoCont.innerHTML =
+                    `<div class="card text-center mt-4" style="width: 30rem; margin:auto">
+                        <div class="card-body">
+                            <h5 class="card-title">${filtrados.local}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Precio por mes${filtrados.precio}$</h6>
+                            <p class="card-text">Y cuenta con un espacio de{filtrados.espacio} </p>
+                            <img src="${filtrados.img}" alt="" style="width: 100%">
+                        </div>
+                    </div>`;
 
                 localFiltradoCont.append(localFiltrado);
             }
@@ -170,7 +186,7 @@ function localesSiono() {
         contenedorDispo.innerHTML = "";
         contenedorFiltro.innerHTML = "";
 
-        window.scrollTo(0, 900);
+        window.scrollTo(0, 970);
         let localesCont = document.createElement("div");
         localesCont.classList.add('w-100')
         localesCont.innerHTML = `<p class="fs-2" style="color:var(--color-negro); background-color: var(--color-blanco); padding: 10px; border-radius:5px;"> No hay problema!</p>`;
@@ -298,8 +314,8 @@ function carritoHTML(lista) {
         prod.classList.add('m-auto');
         prod.classList.add('text-center');
         prod.classList.add('mb-4')
-        prod.innerHTML = 
-        `
+        prod.innerHTML =
+            `
         <div class"contenedorModalCarrito w-100 m-auto">
             <h2 style="color:var(--color-naranja);">${producto.nombre} </h2>        
             <span>Precio: $ ${producto.precio} /</span>
