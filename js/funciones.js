@@ -324,7 +324,6 @@ function carritoHTML(lista) {
         let prod = document.createElement('div');
         prod.classList.add('w-75');
         prod.classList.add('m-auto');
-        prod.classList.add('text-center');
         prod.classList.add('mb-4')
         prod.innerHTML =
             `
