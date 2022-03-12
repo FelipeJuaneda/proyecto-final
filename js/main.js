@@ -10,15 +10,7 @@ local.push(new Locales(8, "Local 8", 15000, "10m x 9m", "https://dummyimage.com/
 local.push(new Locales(9, "Local 9", 7500, "7,5m x 7m", "https://dummyimage.com/420x420/000/fff", "mediano"));
 local.push(new Locales(10, "Local 10", 20000, "15m x 10m", "https://dummyimage.com/400x330/000/fff", "grande"));
 
-/* productos */
-//INSTANCIAR OBJETOS Y ASOCIAR A ARRAY GLOBAL
-productos.push(new Producto(1, "Taza", 65, "https://dummyimage.com/300x300/000/fff"));
-productos.push(new Producto(2, "Vaso", 70, "https://dummyimage.com/300x300/000/fff"));
-productos.push(new Producto(3, "Cubiertos", 100, "https://dummyimage.com/300x300/000/fff"));
-productos.push(new Producto(4, "Platos", 75, "https://dummyimage.com/300x300/000/fff"));
-productos.push(new Producto(5, "Copa", 100, "https://dummyimage.com/300x300/000/fff"));
-//GENERAR INTERFAZ DE PRODUCTOS CON UNA FUNCION
-productosUI(productos, 'productosContenedor');
+
 
 //Boton confirmar carrito
 confirmar.onclick = () => {

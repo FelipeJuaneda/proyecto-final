@@ -283,6 +283,14 @@ nav{
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    padding-bottom: 40px;
+}
+#contenedorLocalDos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
 }
 
 .cartaProductos{

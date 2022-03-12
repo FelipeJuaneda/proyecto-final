@@ -1,4 +1,4 @@
-//CLASE
+//CLASE LOCALES
 class Locales {
     constructor(id, local, precio, espacio, img, tag) {
         this.id = parseInt(id)
@@ -17,6 +17,8 @@ class Locales {
     }
 };
 
+
+//LOCAL 1
 class Producto {
     constructor(id, nombre, precio, img, cantidad) {
             this.id = parseInt(id);

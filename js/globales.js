@@ -1,7 +1,11 @@
+//ARRAY LOCAL
 const local = [];
-
+//ARRAY PRODUCTOS
 const productos = [];
+//ARRAY
 const carrito=[];
+
+
 
 //Interfaz carrito
 const cantidadCarrito= document.getElementById('cantidad');
