@@ -254,7 +254,7 @@ setTimeout(() => {
 //GENERANDO PRODUCTO DE LOCALES
 function productosUI(productos, id) {
     let productosRender = document.getElementById(id);
-    
+
     productosRender.innerHTML = "";
     for (const producto of productos) {
         let divProducto = document.createElement("div");
@@ -282,7 +282,7 @@ fetch("data/localuno.json")
             productos.push(new Producto(literal.id, literal.nombre, literal.precio, literal.img, literal.cantidad));
             productosUI(productos, 'productosContenedor');
         }
-    }).catch(mensaje=> console.error(mensaje));
+    }).catch(mensaje => console.error(mensaje));
 
 
 
@@ -301,7 +301,6 @@ function seleccionarProducto() {
             localStorage.setItem('Carrito', JSON.stringify(carrito));
             //Llamo a la funcion para generar la interfaz de carrito
             carritoHTML(carrito);
-            totalCarrito();
             //Uso de la librería toastify para mostrar un mensaje de accion
             Toastify({
                 text: `Se ha agregado el producto: ${seleccion.nombre}`,
@@ -334,11 +333,48 @@ function carritoHTML(lista) {
             <span>Precio: $ ${producto.precio} /</span>
             <span style="color:var(--color-negro);">Cantidad: ${producto.cantidad} /</span>
             <span style="color:var(--color-negro);">Subtotal: $${producto.subTotal()}</span>
+            <a id="${producto.id}" class="btn btn-success btn-add">+</a>
+            <a id="${producto.id}" class="btn btn-secondary btn-sub">-</a>
+            <a id="${producto.id}" class="btn btn-danger btn-delete">x</a>
         </div>
         `;
         productosCarrito.append(prod);
     }
+    //BOTONES PARA AGREGAR O ELIMINAR PRODUCTO EN CARRITO
+    document.querySelectorAll('.btn-delete').forEach(boton => boton.onclick = eliminarCarrito);
+    document.querySelectorAll('.btn-add').forEach(boton => boton.onclick = addCarrito);
+    document.querySelectorAll('.btn-sub').forEach(boton => boton.onclick = subCarrito);
+    //para que actualice total
+    totalCarrito();
 }
+//funcion borrar carrito
+function eliminarCarrito(e) {
+    let posicion = carrito.findIndex(producto => producto.id == e.target.id);
+    carrito.splice(posicion, 1);
+    carritoHTML(carrito);
+    localStorage.setItem('Carrito', JSON.stringify(carrito));
+}
+function addCarrito() {
+    let agregarProducto = carrito.find(p => p.id == this.id);
+    agregarProducto.agregarCantidadPersonalizada(1);
+    this.parentNode.children[2].innerHTML = "Cantidad: " + agregarProducto.cantidad;
+    this.parentNode.children[3].innerHTML = "Subtotal: " + agregarProducto.subTotal();
+    localStorage.setItem('Carrito', JSON.stringify(carrito));
+    //llamar aca tambien para la interfaz
+    totalCarrito();
+}
+function subCarrito() {
+    let agregarProducto = carrito.find(p => p.id == this.id);
+    if (agregarProducto.cantidad > 1) {
+        agregarProducto.agregarCantidadPersonalizada(-1);
+        this.parentNode.children[2].innerHTML = "Cantidad: " + agregarProducto.cantidad;
+        this.parentNode.children[3].innerHTML = "Subtotal: " + agregarProducto.subTotal();
+        localStorage.setItem('Carrito', JSON.stringify(carrito));
+        //llamar aca tambien para la interfaz
+        totalCarrito();
+    }
+}
+
 
 //-----------Funcion generadora de promesas---------------------------
 function promesaCompra(saldo) {

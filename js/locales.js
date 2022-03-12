@@ -21,19 +21,22 @@ class Locales {
 //LOCAL 1
 class Producto {
     constructor(id, nombre, precio, img, cantidad) {
-            this.id = parseInt(id);
-            this.nombre = nombre.toUpperCase();
-            this.precio = parseFloat(precio);
-            this.img= img;
-            this.cantidad= cantidad || 1;
+        this.id = parseInt(id);
+        this.nombre = nombre.toUpperCase();
+        this.precio = parseFloat(precio);
+        this.img = img;
+        this.cantidad = cantidad || 1;
     }
-    addCantidad(){
-        this.cantidad++;                
+    addCantidad() {
+        this.cantidad++;
     }
-    subTotal(){
-        return this.precio * this.cantidad;                
+    subTotal() {
+        return this.precio * this.cantidad;
     }
-    
+    agregarCantidadPersonalizada(valor){
+        this.cantidad += valor;
+    }
+
 }
 
 
