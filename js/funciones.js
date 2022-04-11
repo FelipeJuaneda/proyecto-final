@@ -109,7 +109,7 @@ function localesSiono() {
                         <div class="card-body">
                             <h5 class="card-title">${filtrados.local}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Precio por mes${filtrados.precio}$</h6>
-                            <p class="card-text">Y cuenta con un espacio de{filtrados.espacio} </p>
+                            <p class="card-text">Y cuenta con un espacio de ${filtrados.espacio} </p>
                             <img src="${filtrados.img}" alt="" style="width: 100%">
                         </div>
                     </div>`;
