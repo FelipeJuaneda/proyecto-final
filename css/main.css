@@ -1,145 +1,140 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Libre+Baskerville&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Libre+Baskerville&display=swap");
 
 :root {
-    --color-negro: #000000;
-    --color-blanco: #ffffff;
-    --color-naranja: #ffc107;
+  --color-negro: #000000;
+  --color-blanco: #ffffff;
+  --color-naranja: #ffc107;
 }
 
 * {
-    padding: 0%;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'EB Garamond', serif;
-    font-family: 'Libre Baskerville', serif;
+  padding: 0%;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "EB Garamond", serif;
+  font-family: "Libre Baskerville", serif;
 }
 
 * a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* NAVEGADOR - BURGER */
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    transition: 0.7s;
-    z-index: 99;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: 0.7s;
+  z-index: 99;
 }
 
 header.scrollAbajo {
-    background-color: var(--color-negro);
+  background-color: var(--color-negro);
 }
 
 header.scrollAbajo .nav-links a {
-    color: var(--color-blanco);
+  color: var(--color-blanco);
 }
 
 header.scrollAbajo .burger div {
-    background-color: var(--color-blanco);
+  background-color: var(--color-blanco);
 }
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
 }
 
 .logo {
-    font-size: 33px;
-    letter-spacing: 2px;
-    transition: 1.5s;
-    border-block: solid var(--color-naranja);
+  font-size: 33px;
+  letter-spacing: 2px;
+  transition: 1.5s;
+  border-block: solid var(--color-naranja);
 }
 
 .logo a span {
-    color: var(--color-naranja);
+  color: var(--color-naranja);
 }
 
 .nav-links {
-    display: flex;
-    justify-content: space-around;
-    width: 45%;
-    margin: 0;
-    border-block: solid black;
-    padding: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 45%;
+  margin: 0;
+  border-block: solid black;
+  padding: 0;
 }
 
 .nav-links li {
-    list-style: none;
+  list-style: none;
 }
 
 .nav-links li:hover {
-    color: var(--color-blanco);
+  color: var(--color-blanco);
 }
 
 .nav-links li #localesLi {
-    cursor: pointer;
-    color: var(--color-blanco);
+  cursor: pointer;
+  color: var(--color-blanco);
 }
 
 .nav-links a {
-    color: var(--color-blanco);
-    text-decoration: none;
-    font-size: 20px;
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .burger {
-    display: none;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
 }
 
 .burger div {
-    width: 25px;
-    height: 4px;
-    margin: 5px;
-    background-color: var(--color-blanco);
+  width: 25px;
+  height: 4px;
+  margin: 5px;
+  background-color: var(--color-blanco);
 }
 
-@media screen and (max-width:768px) {
-    body {
-        overflow-x: hidden;
-    }
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
 
-    .nav-links {
-        position: absolute;
-        right: 0;
-        height: 92vh;
-        top: 8vh;
-        display: flex;
-        background: #000000e0;
-        flex-direction: column;
-        padding: 0;
-        align-items: center;
-        width: 100%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
+  .nav-links {
+    position: absolute;
+    right: 0;
+    height: 92vh;
+    top: 8vh;
+    display: flex;
+    background: #000000e0;
+    flex-direction: column;
+    padding: 0;
+    align-items: center;
+    width: 100%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
 
-    }
-
-    .burger {
-        display: block;
-    }
-
+  .burger {
+    display: block;
+  }
 }
 
 .nav-active {
-    transform: translateX(0%);
+  transform: translateX(0%);
 }
 
 /* TITULO Y UBICACION */
 .tituloUbic {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 
-
-    /* FONDO IMAGEN CORODBA */
-    /* display: flex;
+  /* FONDO IMAGEN CORODBA */
+  /* display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -152,200 +147,197 @@ nav {
 }
 
 .tituloUbic h1 {
-    position: absolute;
-    top: 40%;
+  position: absolute;
+  top: 40%;
 }
 
 .tituloUbic h2 {
-    position: absolute;
-    top: 50%;
-    z-index: -1;
+  position: absolute;
+  top: 50%;
+  z-index: -1;
 }
 
-@media screen and (max-width:740px) {
-    .tituloUbic h2 {
-        top: 55%;
-        left: 0;
-        z-index: -1;
-    }
+@media screen and (max-width: 740px) {
+  .tituloUbic h2 {
+    top: 55%;
+    left: 0;
+    z-index: -1;
+  }
 }
 
 .tituloUbic h1 .paseoColonial {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .tituloUbic h1 .typed {
-    color: var(--color-naranja);
-
+  color: var(--color-naranja);
 }
 
 .videoAtardecer {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    z-index: -99999;
-    object-fit: fill;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: -99999;
+  object-fit: fill;
 }
 
 .contenedorSiono {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    background: white;
-    padding: 3rem 0;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  padding: 3rem 0;
+  align-items: center;
+  text-align: center;
 }
 
 .contenedorLocalesyFiltro {
-    width: 70%;
-    margin: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    background: var(--color-naranja);
-    border-radius: 5px;
+  width: 70%;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-naranja);
+  border-radius: 5px;
 }
 
-@media screen and (max-width:768px) {
-    .contenedorLocalesyFiltro {
-        width: 100%;
-    }
+@media screen and (max-width: 768px) {
+  .contenedorLocalesyFiltro {
+    width: 100%;
+  }
 }
 
 #sionoInput {
-    width: 50%;
-    margin: auto;
+  width: 50%;
+  margin: auto;
 }
 
 #botonLocaldispo {
-    width: 40%;
-    margin: 18px auto 10px;
-    padding: 6px 0px;
-    border-style: none;
-    background: var(--color-negro);
-    color: var(--color-blanco);
-    transition: all .3s;
+  width: 40%;
+  margin: 18px auto 10px;
+  padding: 6px 0px;
+  border-style: none;
+  background: var(--color-negro);
+  color: var(--color-blanco);
+  transition: all 0.3s;
 }
 
 #botonLocaldispo:hover {
-    background: var(--color-blanco);
-    color: var(--color-negro);
+  background: var(--color-blanco);
+  color: var(--color-negro);
 }
 
 #borrarLocales {
-    width: 40%;
-    margin: 0px auto;
-    padding: 6px 0px;
-    border-style: none;
-    background: black;
-    color: white;
-    transition: all .3s;
+  width: 40%;
+  margin: 0px auto;
+  padding: 6px 0px;
+  border-style: none;
+  background: black;
+  color: white;
+  transition: all 0.3s;
 }
 
 #borrarLocales:hover {
-    background: var(--color-blanco);
-    color: var(--color-negro);
+  background: var(--color-blanco);
+  color: var(--color-negro);
 }
 
 .contenedorGaleriaLocales {
-    width: 100%;
-    background-image: url(../imagenes/galeriabambu.jpg);
-    background-size: cover;
-    background-position: bottom;
-    background-attachment: fixed;
-    height: 100vh;
-    box-shadow: 0px 14px 19px -2px rgba(0, 0, 0, 0.64);
-    -webkit-box-shadow: 0px 14px 19px -2px rgba(0, 0, 0, 0.64);
-    -moz-box-shadow: 0px 14px 19px -2px rgba(0, 0, 0, 0.64);
-    display: flex;
-    align-items: center;
+  width: 100%;
+  background-image: url(../imagenes/galeriabambu.jpg);
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  height: 100vh;
+  box-shadow: 0px 14px 19px -2px rgba(0, 0, 0, 0.64);
+  -webkit-box-shadow: 0px 14px 19px -2px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 0px 14px 19px -2px rgba(0, 0, 0, 0.64);
+  display: flex;
+  align-items: center;
 }
 
-@media screen and (max-width:768px) {
-    .contenedorGaleriaLocales {
-        height: 50vh;
-    }
+@media screen and (max-width: 768px) {
+  .contenedorGaleriaLocales {
+    height: 50vh;
+  }
 }
 
 .localesSiono {
-    display: flex;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    width: 100%;
-    align-items: center;
-    height: 32vh;
-    gap: 2.5rem;
-
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  align-items: center;
+  height: 32vh;
+  gap: 2.5rem;
 }
 
-@media screen and (max-width:768px) {
-    .localesSiono {
-        overflow-x: scroll;
-    }
+@media screen and (max-width: 768px) {
+  .localesSiono {
+    overflow-x: scroll;
+  }
 }
 
 .contenedorModalCarrito {
-    text-align: center;
+  text-align: center;
 }
 
 #imagenesLocales {
-    width: 90%;
-    margin: auto;
-    text-align: center;
+  width: 90%;
+  margin: auto;
+  text-align: center;
 }
 
 #contenedorImgs {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 /* BOTON CARRITO */
 .botonCarrito {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 20px;
-    z-index: 99;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+  z-index: 99;
 }
 
 .contenedorCarritoModal {
-    background-color: var(--color-naranja);
+  background-color: var(--color-naranja);
 }
-
 
 /* CARTAS DE PRODUCTOS */
 #productosContenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    padding-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding-bottom: 40px;
 }
 
 #contenedorLocalDos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 
 .cartaProductos {
-    width: 20rem;
-    border: none;
+  width: 20rem;
+  border: none;
 }
 
 .carrusel {
-    width: 20rem;
+  width: 20rem;
 }
 
 .carrusel-item:hover {
-    transform: scale(1.1);
-    transition: .3s;
+  transform: scale(1.1);
+  transition: 0.3s;
 }
